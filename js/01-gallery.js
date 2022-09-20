@@ -36,9 +36,13 @@ function onModalOpen(e) {
   <img width="1400" height="900" src="${e.target.dataset.source}">`);
   galleryModal.show();
 
-  window.addEventListener("keydown", (e) => {
-    if (e.code === "Escape") {
-      galleryModal.close();
-    }
-  });
+  window.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.code === "Escape") {
+        galleryModal.close();
+      }
+    },
+    { once: true }
+  );
 }
