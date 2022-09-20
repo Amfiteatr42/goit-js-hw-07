@@ -36,13 +36,12 @@ function onModalOpen(e) {
   <img width="1400" height="900" src="${e.target.dataset.source}">`);
   galleryModal.show();
 
-  window.addEventListener(
-    "keydown",
-    (e) => {
-      if (e.code === "Escape") {
-        galleryModal.close();
-      }
-    },
-    { once: true }
-  );
+  window.addEventListener("keydown", onCloseBtn);
+
+  function onCloseBtn(e) {
+    if (e.code === "Escape") {
+      galleryModal.close();
+      window.removeEventListener("keydown", onCloseBtn);
+    }
+  }
 }
